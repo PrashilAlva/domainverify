@@ -2,9 +2,12 @@ var express = require('express');
 var request = require('request');
 var fs = require('fs');
 var bodyParser = require('body-parser');
+var path=require('path');
 var port = 443;
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', urlencodedParser, function (req, res) {
@@ -12,12 +15,9 @@ app.get('/', urlencodedParser, function (req, res) {
 });
 
 app.post('/checkWho',urlencodedParser, (req, res) => {
-    console.log(req.body.who);
     var site=req.body.who;
     var url = "http://api.domainsdb.info/v1/domains/search?domain="+site;
-    console.log(url);
     request(url, function (err, response, body) {
-        console.log(response);
         if (response.statusCode==200) {
             fs.createReadStream(__dirname + '/success.html').pipe(res);
         }

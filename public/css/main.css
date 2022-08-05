@@ -1,0 +1,116 @@
+body .domain{
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+.banner {
+    position: relative;
+    background: rgb(54, 150, 194);
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 0 10px;
+}
+@media only screen and (max-width: 767px) {
+    .banner {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+   }
+}
+.banner .bg {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: no-repeat url(
+   "https://via.placeholder.com/1200x800"
+   ) center center;
+    background-size: cover;
+    clip-path: circle(50vw at 100% 50%);
+}
+@media only screen and (max-width: 767px) {
+    .banner .bg {
+        order: 2;
+        display: block;
+        position: relative;
+        width: 100%;
+        height: calc(100vw * 2 / 3);
+        clip-path: circle(60% at 55% 77%);
+   }
+}
+.banner.with-image .bg {
+    background: no-repeat url(
+   "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8d2Vic2l0ZXx8fHx8fDE2NTk2ODA2Mjc&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900"
+   ) center center;
+    background-size: cover;
+}
+.banner .overlay {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+@media only screen and (max-width: 767px) {
+    .banner .overlay {
+        display: block;
+        position: relative;
+   }
+}
+.banner .overlay .inner {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.banner .overlay .inner .content {
+    width: calc(50% - 20px);
+    padding: 10px;
+}
+@media only screen and (max-width: 767px) {
+    .banner .overlay .inner .content {
+        width: calc(100% - 20px);
+   }
+}
+.banner .overlay .inner .content h2 {
+    margin: 0 0 10px;
+}
+
+.mod{
+    padding-top: 5%;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.git{
+    text-decoration: none;
+}
+
+.error-btn{
+    color:red;
+}
+
+.error{
+    color: red;
+}
+
+.error-btn:hover {
+    color: white;
+}
+
+.success{
+    color:green;
+}
+
+.success-btn{
+    color:green;
+}
+
+.success-btn:hover{
+    color: white;
+}

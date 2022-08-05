@@ -14,9 +14,10 @@ app.get('/', urlencodedParser, function (req, res) {
 app.post('/checkWho',urlencodedParser, (req, res) => {
     console.log(req.body.who);
     var site=req.body.who;
-    var url = "http://api.domainsdb.info/search?query="+site;
+    var url = "http://api.domainsdb.info/v1/domains/search?domain="+site;
     console.log(url);
     request(url, function (err, response, body) {
+        console.log(response);
         if (response.statusCode==200) {
             fs.createReadStream(__dirname + '/success.html').pipe(res);
         }
